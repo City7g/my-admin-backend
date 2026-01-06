@@ -7,4 +7,4 @@ Route::get('/', function () {
     return response()->json('Hello');
 });
 
-Route::apiResource('users', UserController::class)->only('index');
+Route::apiResource('users', UserController::class);
