@@ -25,6 +25,7 @@ class UpdateUserRequest extends FormRequest
             'name' => ['string', 'min:3', 'max:100'],
             'email' => ['string', 'email', Rule::unique('users', 'email')->ignore($userId), 'min:3', 'max:100'],
             'password' => ['string', 'min:3', 'max:100'],
+            'isAdmin' => ['boolean'],
         ];
     }
 }

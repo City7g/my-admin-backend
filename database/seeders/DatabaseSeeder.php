@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'City7gor',
             'email' => 'City7gor@gmail.com',
             'password' => Hash::make('123123123'),
+            'isAdmin' => true,
         ]);
 
         User::factory(10)->create();
