@@ -4,13 +4,14 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -18,12 +19,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'isAdmin'
-    ];
+    protected $fillable = ["name", "email", "password", "isAdmin"];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -31,7 +27,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
+        "password",
         // 'remember_token',
     ];
 
@@ -44,8 +40,8 @@ class User extends Authenticatable
     {
         return [
             // 'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'isAdmin' => 'boolean',
+            "password" => "hashed",
+            "isAdmin" => "boolean",
         ];
     }
 }
